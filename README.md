@@ -13,7 +13,7 @@ harhacker
     source deps/bin/activate
 
     # Install requirements
-    pip install -Ur harhacker/requirements/project.txt
+    pip install -Ur requirements.txt
 
     # Create sqlite database
     python harhacker/manage.py syncdb
