@@ -1,16 +1,6 @@
 harhacker
 =========
 
-### Setup Python
-
-Install pip
-
-    sudo easy_install pip
-
-Install virtualenv
-
-    sudo pip install virtualenv
-
 ### Setup RabbitMQ (OS X)
 
 Install homebrew
@@ -37,7 +27,32 @@ Stop rabbitmq (just an FYI)
 
     sudo rabbitmqctl stop
 
-### Setup harhacker
+### Setup BrowserMob Proxy
+
+Download latest binary release
+
+    wget https://github.com/downloads/webmetrics/browsermob-proxy/browsermob-proxy-2.0-beta-3-bin.zip
+
+Extract and rename
+
+    unzip browsermob-proxy*.zip
+    mv $( ls -d browsermob-proxy* ) browsermob-proxy
+
+Make shell script executable
+
+    chmod 755 browsermob-proxy/bin/browsermob-proxy
+
+### Setup Python
+
+Install pip
+
+    sudo easy_install pip
+
+Install virtualenv
+
+    sudo pip install virtualenv
+
+### Setup Django Project
 
 Checkout repository
 
@@ -59,7 +74,7 @@ Create sqlite database
 
     python harhacker/manage.py syncdb
 
-### Run harhacker
+### Run Django Project
 
 Active virtualenv
 
@@ -75,7 +90,8 @@ Run tasks
 
 ### Tips and Tricks
 
-If you checkout the project to a directory named `harhacker` you can use the
+ * Use `python harhacker/manage.py shell` to experiment
+ * If you checkout the project to a directory named `harhacker` you can use the
 following [bash function][bash] to quickly interact with manage.py.
 
 [bash]: https://github.com/silas/config/blob/f6df7008510b34a5a40eb20c976234dcd42d82c6/.bashrc#L33
