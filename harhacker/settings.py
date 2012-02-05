@@ -1,13 +1,13 @@
 import os
 
 ROOT_PATH = os.path.dirname(os.path.realpath(__file__))
-ENV = os.environ.get('DJANGO_ENV', 'dev')
+ENV = os.environ.get('ENV', 'dev')
 
-DEBUG = os.environ.get('DJANGO_DEBUG') == 'true' or ENV == 'dev'
+DEBUG = os.environ.get('DEBUG') == 'true' or ENV == 'dev'
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    (os.environ.get('DJANGO_ADMIN_NAME', 'Admin'), os.environ.get('DJANGO_ADMIN_EMAIL', 'root@localhost')),
+    (os.environ.get('ADMIN_NAME', 'Admin'), os.environ.get('ADMIN_EMAIL', 'root@localhost')),
 )
 
 MANAGERS = ADMINS
@@ -15,22 +15,22 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': os.environ.get(
-            'DJANGO_DB_ENGINE',
+            'DB_ENGINE',
             'django.db.backends.sqlite3' if ENV == 'dev' else 'django.db.backends.mysql',
         ),
         'NAME': os.environ.get(
-            'DJANGO_DB_NAME',
+            'DB_NAME',
             '.harhacker.db' if ENV == 'dev' else 'harhacker',
         ),
-        'USER': os.environ.get('DJANGO_DB_USER', ''),
-        'PASSWORD': os.environ.get('DJANGO_DB_PASSWORD', ''),
-        'HOST': os.environ.get('DJANGO_DB_HOST', ''),
-        'PORT': os.environ.get('DJANGO_DB_PORT', ''),
+        'USER': os.environ.get('DB_USER', ''),
+        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
+        'HOST': os.environ.get('DB_HOST', ''),
+        'PORT': os.environ.get('DB_PORT', ''),
     }
 }
 
-TIME_ZONE = os.environ.get('DJANGO_TIME_ZONE', 'GMT')
-LANGUAGE_CODE = os.environ.get('DJANGO_LANGUAGE_CODE', 'en-us')
+TIME_ZONE = os.environ.get('TIME_ZONE', 'GMT')
+LANGUAGE_CODE = os.environ.get('LANGUAGE_CODE', 'en-us')
 SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
@@ -54,15 +54,12 @@ STATICFILES_FINDERS = (
 )
 
 # Secret key
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'secret')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'secret')
 
 APPEND_SLASH = False
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login'
 LOGOUT_URL = '/logout'
-
-ELASTIC_SEARCH_HOST = os.environ.get('DJANGO_ELASTIC_SEARCH_HOST', 'localhost:9200').split()
-ELASTIC_SEARCH_TIMEOUT = 10
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
