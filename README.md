@@ -65,9 +65,13 @@ Active virtualenv
 
     source deps/bin/activate
 
-Start server
+Run web
 
     python harhacker/manage.py runserver
+
+Run tasks
+
+    python harhacker/manage.py celeryd -l debug
 
 ### Tips and Tricks
 

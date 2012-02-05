@@ -1,4 +1,7 @@
 import os
+import djcelery
+
+djcelery.setup_loader()
 
 ROOT_PATH = os.path.dirname(os.path.realpath(__file__))
 ENV = os.environ.get('ENV', 'dev')
@@ -99,6 +102,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'djcelery',
     'harhacker.dashboards',
     'harhacker.pollers',
 )
