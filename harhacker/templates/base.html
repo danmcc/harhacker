@@ -14,9 +14,12 @@
           <a class="brand" href="/">HarHacker</a>
           {% if user.is_authenticated %}
           <ul class="nav">
-            <li><a href="/pollers">Pollers</a></li>
+            <li><a href="{% url pollers:index %}">Pollers</a></li>
           </ul>
           <ul class="nav pull-right">
+            {% if user.is_superuser %}
+            <li><a href="{% url admin:index %}">Admin</a></li>
+            {% endif %}
             <li><a href="/logout">Logout</a></li>
           </ul>
           {% endif %}

@@ -9,5 +9,5 @@ urlpatterns = patterns('',
     (r'^login$',  'django.contrib.auth.views.login', {'template_name': 'login.html'}, 'login'),
     (r'^logout$', 'django.contrib.auth.views.logout', {'template_name': 'logout.html'}, 'logout'),
     (r'^$', 'harhacker.dashboards.views.home', {}, 'home'),
-    (r'^pollers', include('harhacker.pollers.urls')),
+    (r'^pollers', include('harhacker.pollers.urls', namespace='pollers')),
 )

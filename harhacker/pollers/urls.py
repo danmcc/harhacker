@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import patterns, url
 
 urlpatterns = patterns('harhacker.pollers.views',
-    url(r'^$', 'index', name='pollers_index'),
+    url(r'^$', 'index', name='index'),
 )
