@@ -1,4 +1,4 @@
-harhacker
+HarHacker
 =========
 
 ### Setup RabbitMQ (OS X)
