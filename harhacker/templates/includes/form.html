@@ -1,0 +1,25 @@
+<form action="{{ action }}" method="post" class="form-stacked">
+  <fieldset>
+    {% if form.non_field_errors %}
+    <div class="error nodehub-error">{{ form.non_field_errors }}</div>
+    {% endif %}
+
+    {% for field in form.visible_fields %}
+    <div class="clearfix{% if field.errors %} error{% endif %}">
+      <label for="{{ field.html_name }}">{{ field.label_tag }}</label>
+      <div class="input">
+        {{ field }}
+        <span class="help-inline">{{ field.help_text }}</span>
+      </div>
+      {{ field.errors }}
+    </div>
+    {% endfor %}
+
+    <div class="actions">
+      {% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+      {% csrf_token %}
+      <button class="btn primary" name="action" type="submit" value="submit">{{ submit|default:"Save" }}</button>
+      {% if not no_cancel %}<button class="btn" name="action" type="submit" value="cancel">{{ cancel|default:"Cancel" }}</button>{% endif %}
+    </div>
+  </fieldset>
+</form>

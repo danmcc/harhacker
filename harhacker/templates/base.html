@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>{% block head_title %}HarHacker{% endblock %}</title>
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="/static/harhacker.css" rel="stylesheet" type="text/css" media="screen">
+    <script type="text/javascript" src="/static/harhacker.js"></script>
+  </head>
+  <body id="{% block body_id %}default{% endblock %}">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">HarHacker</a>
+          {% if user.is_authenticated %}
+          <ul class="nav">
+            <li><a href="/pollers">Pollers</a></li>
+          </ul>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% block body %}{% endblock %}
+  </body>
+</html>

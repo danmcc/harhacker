@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <h1>Login</h1>
+      {% include "includes/form.html" with submit="Login" no_cancel="true" %}
+    </div>
+  </div>
+</div>
+{% endblock %}
