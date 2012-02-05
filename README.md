@@ -15,6 +15,9 @@ harhacker
     # Install requirements
     pip install -Ur harhacker/requirements/project.txt
 
+    # Create sqlite database
+    python harhacker/manage.py syncdb
+
 ### Run Development
 
     # Active virtualenv
