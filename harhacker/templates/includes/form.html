@@ -1,7 +1,7 @@
 <form action="{{ action }}" method="post" class="form-stacked">
   <fieldset>
     {% if form.non_field_errors %}
-    <div class="error nodehub-error">{{ form.non_field_errors }}</div>
+    <div class="error">{{ form.non_field_errors }}</div>
     {% endif %}
 
     {% for field in form.visible_fields %}
